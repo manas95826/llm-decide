@@ -16,17 +16,17 @@ def get_claude_response(prompt):
         model="claude-3-5-sonnet-20241022",  # Specify Claude model version here
         max_tokens=1000,
         temperature=0,
-        system="You are a helpful Indian legal assistant. Respond clearly and concisely.",
+        system="You are a helpful Indian legal assistant. Respond in detail and with proper analysis and cite the relevant sections of the Indian Constitution and laws.",
         messages=[{"role": "user", "content": [{"type": "text", "text": prompt}]}]
     )
     return message.content
 
 # Define function for interacting with OpenAI API
-def get_openai_response(prompt, model="gpt-4"):
+def get_openai_response(prompt, model="gpt-4o"):
     completion = openai_client.chat.completions.create(
         model=model,
         messages=[
-            {"role": "system", "content": "You are a helpful Indian legal assistant. Respond clearly and concisely."},
+            {"role": "system", "content": "You are a helpful Indian legal assistant. Respond in detail and with proper analysis and cite the relevant sections of the Indian Constitution and laws."},
             {"role": "user", "content": prompt}
         ]
     )
