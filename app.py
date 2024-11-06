@@ -19,7 +19,7 @@ def get_claude_response(prompt):
         system="You are a helpful Indian legal assistant. Respond in detail and with proper analysis and cite the relevant sections of the Indian Constitution and laws.",
         messages=[{"role": "user", "content": [{"type": "text", "text": prompt}]}]
     )
-    return message.content
+    return message.content[0].text
 
 # Define function for interacting with OpenAI API
 def get_openai_response(prompt, model="gpt-4o"):
